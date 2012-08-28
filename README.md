@@ -30,6 +30,6 @@ The database name is stored in your frame_config file as mongoose.db
 
 # Version Compatibility
 
-At the time of this writing this package is consistent with Mongoose 3.x and Nuby-Express 2.1.11,
+At the time of this writing this package is consistent with Mongoose 3.x and Nuby-Express 2.2.x,
 which is in turn consistent with Mongodb 2.0.x. All of this is running under Node 0.8.x.
 It has been tested under Mac OSX and Ubuntu. 

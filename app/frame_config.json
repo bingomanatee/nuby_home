@@ -1,0 +1,18 @@
+{
+    "server":{
+        "port":80
+    },
+
+    "mongoose":{
+        "db":"ne_blog"
+    },
+
+    "default_layout_name":"ne_blog",
+
+    "open_admin":true,
+
+    "layout_name":"ne_blog",
+
+    "seessio
+
+}

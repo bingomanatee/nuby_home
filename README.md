@@ -25,3 +25,11 @@ It will be a dull ride indeed without content in the app.
 The session secret is embedded in the config.json file; please change it.
 Also, we are using node memory storage here for sessions.
 You might want to consider something more permanent for deployed sites with significant traffic.
+
+The database name is stored in your frame_config file as mongoose.db
+
+# Version Compatibility
+
+At the time of this writing this package is consistent with Mongoose 3.x and Nuby-Express 2.1.11,
+which is in turn consistent with Mongodb 2.0.x. All of this is running under Node 0.8.x.
+It has been tested under Mac OSX and Ubuntu. 

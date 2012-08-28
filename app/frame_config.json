@@ -11,8 +11,10 @@
 
     "open_admin":true,
 
-    "layout_name":"ne_blog",
+    "layout_name":"beekeeper",
 
-    "session_secret": "Mitt Romney is Montgomery Burns in a latex mask"
+    "session_secret": "Mitt Romney is Montgomery Burns in a latex mask",
+
+    "css": []
 
 }

@@ -1,0 +1,13 @@
+header {
+    height: 120px;
+    background-color: yellow;
+    clear: both;
+}
+body  {
+    padding: 0px;
+    margin: 0px;
+}
+
+section {
+    padding: 2em;
+}

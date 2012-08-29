@@ -25,7 +25,7 @@ module.exports = {
     on_process: function(rs, controllers, components, actions, framework){
 
         var routes = _.reduce(actions, function(r, a){
-            return r.concat(a.get_routes());
+            return r.concat(a.get_routes(true));
         }, []);
 
         var output = {

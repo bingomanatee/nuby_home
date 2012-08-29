@@ -19,7 +19,7 @@
 <ul>
     <% components.forEach(function(c){%>
     <li><%= c %>
-        <button onClick="NE_MAKE.add_controller('<%= c %>')">Add Controller</button>
+        <button onClick="NE_MAKE.add_controller('<%= c %>', 'component')">Add Controller</button>
     </li>
     <%}); %>
 </ul>
@@ -34,23 +34,25 @@
 </ul>
 <h3>Actions</h3><ul>
     <% actions.forEach(function(c){%>
-    <li><%= c %>
-    </li>
+    <li><%= c %></li>
     <%}); %>
 </ul>
 <h3>Routes</h3><ul>
     <% routes.forEach(function(c){%>
-    <li><%= c %>
+    <li><b><%= c.route %></b>(<%-c.method %>) <%if (c.method == 'get'){%>
+        <a href="<%- c.route %>">View</a><%} %>
     </li>
     <%}); %>
 </ul>
+
+<!-- **************************** MAKE COMPONENT FORM ********************************** -->
+
 <form action="/make_component" method="post" id="new_comp" style="display: none" class="new_cca">
-    <h2>Add Component</h2>
     <input type="hidden" name="type"/>
     <input type="hidden" name="root"/>
 
-    <p><b>Root</b>: <tt class="root"></tt><br/>
-        <b>Type</b>: <span class="root_type"/></span></p>
+    <p><b>Root Path</b>: <tt class="root"></tt><br/>
+        <b>Root Type</b>: <span class="root_type"/></span></p>
     <table>
         <thead>
 
@@ -79,9 +81,12 @@
             <td colspan="2"><input name="controller3" type="text"></td>
         </tr>
         <tr>
-            <th colspan="2">Actions</th>
-            <th colspan="2">Actions</th>
-            <th colspan="2">Actions</th>
+            <th>Action Name<sup>*</sup></th>
+            <th>Method</th>
+            <th>Action Name<sup>*</sup></th>
+            <th>Method</th>
+            <th>Action Name<sup>*</sup></th>
+            <th>Method</th>
         </tr>
         <% for(var actnum = 1; actnum <5; ++actnum ){ %>
         <tr>
@@ -97,7 +102,82 @@
     <hr/>
     <button type="submit">Make Component</button>
     <p style="color: red">You will have to restart your app to enable new elements</p>
+    <p>* the name you choose will be part of a url - so no spaces, special symbols, capital letters</p>
 </form>
+
+
+<!-- **************************** MAKE CONTROLLER FORM ********************************** -->
+
+<form action="/make_controller" method="post" id="new_con" style="display: none" class="new_cca">
+    <input type="hidden" name="type"/>
+    <input type="hidden" name="root"/>
+
+    <p><b>Root Path</b>: <tt class="root"></tt><br/>
+        <b>Root Type</b>: <span class="root_type"/></span></p>
+    <table>
+        <thead>
+
+        <tr>
+            <td colspan="2">
+
+                <h3>Controller Name</h3>
+                <label>Name</label><input name="con_name" type="text"/> <br />
+
+                <small><span color="red">Required</span> - all other fields are optional</small>
+            </td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>Action Name<sup>*</sup></th>
+            <th>Method</th>
+        </tr>
+        <% for(var actnum = 1; actnum <5; ++actnum ){ %>
+         <tr>
+             <td><input  name="action_<%= actnum %>" type="text"/></td>
+             <td><select name="action_<%= actnum %>_method"><%- methods %></select></td>
+         </tr>
+         <%} %>
+        </tbody>
+    </table>
+
+    <hr/>
+    <button type="submit">Make Controller</button>
+    <p style="color: red">You will have to restart your app to enable new elements</p>
+    <p>* the name you choose will be part of a url - so no spaces, special symbols, capital letters</p>
+</form>
+
+
+<!-- **************************** MAKE ACTION FORM ********************************** -->
+
+<form action="/make_action" method="post" id="new_action" style="display: none" class="new_cca">
+    <input type="hidden" name="type"/>
+    <input type="hidden" name="root"/>
+
+    <p><b>Root Path</b>: <tt class="root"></tt><br/>
+        <b>Root Type</b>: <span class="root_type"/></span></p>
+    <table>
+        <tbody>
+        <tr>
+            <th>Action Name<sup>*</sup></th>
+            <th>Method</th>
+        </tr>
+        <% for(var actnum = 1; actnum <5; ++actnum ){ %>
+         <tr>
+             <td><input  name="action_<%= actnum %>" type="text"/></td>
+             <td><select name="action_<%= actnum %>_method"><%- methods %></select></td>
+         </tr>
+         <%} %>
+        </tbody>
+    </table>
+
+    <hr/>
+    <button type="submit">Make Actions</button>
+    <p style="color: red">You will have to restart your app to enable new actions</p>
+    <p>* the name you choose will be part of a url - so no spaces, special symbols, capital letters</p>
+</form>
+
+<!-- **************************** CSS ********************************** -->
 
 <style>
     .new_cca {

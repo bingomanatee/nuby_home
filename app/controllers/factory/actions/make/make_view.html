@@ -1,0 +1,147 @@
+<%
+        var methods = '<option value="*">All</option>' +
+        '<option value="get">Get</option>' +
+        '<option value="post">Post</option>' +
+        '<option value="put">Put</option>' +
+        '<option value="delete">Delete</option>'
+        %>
+
+<h2>Site Maker</h2>
+
+<h3>Framework</h3>
+<ul>
+    <li><%= framework %>
+        <button onClick="NE_MAKE.add_component('<%= framework %>', 'framework')">Add Component</button>
+    </li>
+</ul>
+<h3>Components</h3>
+
+<ul>
+    <% components.forEach(function(c){%>
+    <li><%= c %>
+        <button onClick="NE_MAKE.add_controller('<%= c %>')">Add Controller</button>
+    </li>
+    <%}); %>
+</ul>
+
+<h3>Controllers</h3>
+<ul>
+    <% controllers.forEach(function(c){%>
+    <li><%= c %>
+        <button onClick="NE_MAKE.add_action('<%= c %>')">Add Action</button>
+    </li>
+    <%}); %>
+</ul>
+<h3>Actions</h3><ul>
+    <% actions.forEach(function(c){%>
+    <li><%= c %>
+    </li>
+    <%}); %>
+</ul>
+<h3>Routes</h3><ul>
+    <% routes.forEach(function(c){%>
+    <li><%= c %>
+    </li>
+    <%}); %>
+</ul>
+<form action="/make_component" method="post" id="new_comp" style="display: none" class="new_cca">
+    <h2>Add Component</h2>
+    <input type="hidden" name="type"/>
+    <input type="hidden" name="root"/>
+
+    <p><b>Root</b>: <tt class="root"></tt><br/>
+        <b>Type</b>: <span class="root_type"/></span></p>
+    <table>
+        <thead>
+
+        <tr>
+            <td colspan="6">
+
+                <h3>Root Component Name</h3>
+                <label>Name</label><input name="comp_name" type="text"/>
+
+                <small><span color="red">Required</span> - all other fields are optional</small>
+            </td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th colspan="2"> Controller 1</th>
+            <th colspan="2">Controller 2</th>
+            <th colspan="2">Controller 3</th>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input name="controller1" type="text">
+            </td>
+            <td colspan="2"><input name="controller2" type="text">
+            </td>
+            <td colspan="2"><input name="controller3" type="text"></td>
+        </tr>
+        <tr>
+            <th colspan="2">Actions</th>
+            <th colspan="2">Actions</th>
+            <th colspan="2">Actions</th>
+        </tr>
+        <% for(var actnum = 1; actnum <5; ++actnum ){ %>
+        <tr>
+            <% for (var con = 1; con <= 3; ++con) {%>
+            <td><input  name="con_<%= con %>_action_<%= actnum %>" type="text"/></td>
+            <td><select name="con_<%= con %>_action_<%= actnum %>_method"><%- methods %></select></td>
+            <% } %>
+        </tr>
+        <%} %>
+        </tbody>
+    </table>
+
+    <hr/>
+    <button type="submit">Make Component</button>
+    <p style="color: red">You will have to restart your app to enable new elements</p>
+</form>
+
+<style>
+    .new_cca {
+        font-size: 110%;
+        font-family: "Helvetica Neue", Helvetica, Genevaa, Arial, sans-serif;
+        -webkit-appearance: none;
+    }
+
+    .new_cca td,
+    .new_cca th {
+        padding: 0.25em;
+        margin: 0px;
+        vertical-align: top;
+        text-align: left;
+    }
+
+    .new_cca tbody  th {
+        background-color: rgb(225, 225, 225);
+        border-bottom: 1px solid black;
+    }
+
+    .new_cca  tbody td input[type="text"] {
+        width: 16em;
+        padding: 3px;
+    }
+
+    .new_cca  thead td input[type="text"] {
+        width: 18em;
+        padding: 3px;
+    }
+
+
+    .new_cca input[type="button"] {
+        width: 18em;
+        padding: 3px;
+        font-weight: bold;
+    }
+
+    .new_cca button {
+        font-weight: bold;
+        padding: 0.25em;
+        width: 16em;
+        -webkit-appearance: none;
+        font-size: 90%;
+        background-color: rgb(255, 250, 240);
+    }
+</style>

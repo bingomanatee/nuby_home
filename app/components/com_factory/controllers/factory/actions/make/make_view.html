@@ -47,7 +47,7 @@
 
 <!-- **************************** MAKE COMPONENT FORM ********************************** -->
 
-<form action="/make_component" method="post" id="new_comp" style="display: none" class="new_cca">
+<form action="/make_component" method="post" id="new_comp" style="display: none" class="new">
     <input type="hidden" name="type"/>
     <input type="hidden" name="root"/>
 
@@ -108,7 +108,7 @@
 
 <!-- **************************** MAKE CONTROLLER FORM ********************************** -->
 
-<form action="/make_controller" method="post" id="new_con" style="display: none" class="new_cca">
+<form action="/make_controller" method="post" id="new_con" style="display: none" class="new">
     <input type="hidden" name="type"/>
     <input type="hidden" name="root"/>
 
@@ -150,7 +150,7 @@
 
 <!-- **************************** MAKE ACTION FORM ********************************** -->
 
-<form action="/make_action" method="post" id="new_action" style="display: none" class="new_cca">
+<form action="/make_action" method="post" id="new_action" style="display: none" class="new">
     <input type="hidden" name="type"/>
     <input type="hidden" name="root"/>
 
@@ -176,52 +176,3 @@
     <p style="color: red">You will have to restart your app to enable new actions</p>
     <p>* the name you choose will be part of a url - so no spaces, special symbols, capital letters</p>
 </form>
-
-<!-- **************************** CSS ********************************** -->
-
-<style>
-    .new_cca {
-        font-size: 110%;
-        font-family: "Helvetica Neue", Helvetica, Genevaa, Arial, sans-serif;
-        -webkit-appearance: none;
-    }
-
-    .new_cca td,
-    .new_cca th {
-        padding: 0.25em;
-        margin: 0px;
-        vertical-align: top;
-        text-align: left;
-    }
-
-    .new_cca tbody  th {
-        background-color: rgb(225, 225, 225);
-        border-bottom: 1px solid black;
-    }
-
-    .new_cca  tbody td input[type="text"] {
-        width: 16em;
-        padding: 3px;
-    }
-
-    .new_cca  thead td input[type="text"] {
-        width: 18em;
-        padding: 3px;
-    }
-
-
-    .new_cca input[type="button"] {
-        width: 18em;
-        padding: 3px;
-        font-weight: bold;
-    }
-
-    .new_cca button {
-        font-weight: bold;
-        padding: 0.25em;
-        width: 16em;
-        -webkit-appearance: none;
-        font-size: 90%;
-        background-color: rgb(255, 250, 240);
-    }
-</style>

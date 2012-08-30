@@ -1,0 +1,4 @@
+{
+    "route":"*/alpha",
+    "method":"get"
+}

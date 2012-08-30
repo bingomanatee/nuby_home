@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Nuby Express</title>
+ <link href="/bee_files/css/site.css" media="all" rel="stylesheet" type="text/css" />
+
+    <!-- Stylesheets -->
+    <%- partial("css.html", css) %>
+
+    <!-- Scripts -->
+    <%- partial("js.html", javascript_head) %>
+
+    <!--[if lt IE 9]><script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js" defer="defer"></script><![endif]-->
+
+</head>
+<body>
+<header>
+    <a href="/"><img src="/bee_files/img/nu_bee.png" align="left" height="100" width="100"/></a>
+    <h1>Nuby Express Sample Site</h1>
+<br class="all" />
+    <%- helpers.flash() %>
+</header>
+<section>
+<%- body %>
+    <!-- Scripts -->
+    <%- partial("js.html", javascript) %>
+</section>
+</body>
+</html>

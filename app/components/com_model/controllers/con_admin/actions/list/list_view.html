@@ -6,15 +6,50 @@
 <%}) %>
 <hr/>
 <h2>Make a Model</h2>
-<form id="make_model">
+<form id="make_model" method="post" action="/admin/model/make" class="new">
     <table>
-        <thead>
-
-        </thead>
         <tbody>
         <tr>
             <th>Name</th>
             <td><input type="text" name="model_name"></td>
+        </tr>
+
+        <tr>
+            <th>Destination</th>
+            <td><select name="dest">
+                <% comp.concat(con).forEach(function(def){%>
+                <option value="<%= def.path %>"><%= def.CLASS %> <%= def.name %>: <%= def.path %></option>
+                <% }) %>
+            </select></td>
+        </tr>
+        </tbody>
+    </table>
+    <table>
+        <thead>
+
+        <tr>
+            <th> Field</th>
+            <th>Default</th>
+        </tr>
+
+        </thead>
+        <tbody id="default_fields">
+        <tr>
+            <td><input type="text"name="field[]" autocomplete="off" /></td>
+            <td><input type="text" name="default_value[]" autocomplete="off" /></td>
+        </tr>
+        </tbody>
+        <tbody id="more_fields">
+
+        </tbody>
+        <tbody>
+        <tr>
+            <th>
+                <button onclick="$('#more_fields').append($('#default_fields').html()); return false">Add Field</button>
+            </th>
+            <td>
+                <button type="submit">Create Model</button>
+            </td>
         </tr>
         </tbody>
     </table>

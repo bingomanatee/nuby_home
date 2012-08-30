@@ -1,1 +1,10 @@
-{"route":"*/list","method":"get"}
+{
+    "route":"*/list",
+    "method":"get",
+
+    "javascript_head":[
+        "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js",
+        "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"],
+    "css":["http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css",
+        "/css/admin/model/list/list.css"]
+}

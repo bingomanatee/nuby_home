@@ -3,6 +3,12 @@ header {
     background-color: yellow;
     clear: both;
 }
+header h1 {
+    font-family: 'Bowlby One SC', cursive;
+    font-size: 250%;
+    font-weight: normal;
+}
+
 body  {
     padding: 0px;
     margin: 0px;
@@ -10,4 +16,25 @@ body  {
 
 section {
     padding: 2em;
+}
+
+section h1, section h2, section h3 {
+    font-family: 'Bowlby One SC', cursive;
+    font-weight: normal;
+    padding: 0px;
+    margin: 0px;
+    color: rgb(125,120, 80);
+}
+
+section h1 {
+
+    font-size: 250%;
+}
+section h2 {
+
+    font-size: 200%;
+}
+section h3 {
+    font-size: 150%;
+    color: rgb(200,150,150);
 }

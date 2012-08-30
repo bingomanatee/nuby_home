@@ -1,1 +1,7 @@
-{"get_route":"*/make","method":"*","put_route":"*/make","post_route":"*/make","delete_route":"*/make"}
+{
+    "method":"*",
+    "get_route":"*/make",
+    "put_route":"*/make",
+    "post_route":"*/make",
+    "delete_route":"*/make"
+}

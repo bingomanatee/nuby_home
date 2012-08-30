@@ -1,0 +1,52 @@
+<h1>Foo Models</h1>
+
+<table>
+    <thead>
+
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Count</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% db.forEach(function(item ){ %>
+    <tr>
+        <td><%= item.cid %></td>
+        <td><%= item.get('name') %></td>
+        <td><%= item.get('count') %></td>
+        <td><%= JSON.stringify(item.toJSON() ) %></td>
+    </tr>
+    <% }) %>
+    </tbody>
+</table>
+<h2>Create a new Foo</h2>
+
+<form method="post" action="/test_model/tmone/beta" class="new">
+
+    <table>
+        <tbody>
+        <tr>
+            <th>Name</th>
+            <td>
+                <input name="foo[name]" type="text"/>
+            </td>
+        </tr>
+        <tr>
+            <th>Count</th>
+            <td>
+                <input name="foo[count]" type="text" value="0"/>
+            </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <th>&nbsp;</th>
+            <td>
+                <button type="submit">Create Foo</button>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+
+</form>
